@@ -1,13 +1,14 @@
 {
   "name": "stroke-the-zacki",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "homepage": "https://ofpat.github.io/stz",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "gh-pages": "^4.0.0",
