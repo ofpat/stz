@@ -12,8 +12,11 @@
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
+    "bootstrap": "^5.2.2",
+    "classnames": "^2.3.2",
     "gh-pages": "^4.0.0",
-    "preact": "^10.10.6"
+    "preact": "^10.10.6",
+    "prop-types": "^15.8.1"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.3.0",

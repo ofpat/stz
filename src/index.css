@@ -35,6 +35,7 @@ body {
   min-height: 100vh;
   background-color: #0e221f;
   user-select: none;
+  color: black;
 }
 
 h1 {
@@ -64,8 +65,21 @@ h1 span {
   text-fill-color: transparent;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  @media (min-width: 1024px) {
+}
+
+@media (min-width: 1024px) {
+  h1 span {
     font-size: 3rem;
+  }
+}
+
+.logo {
+  width: 150px;
+}
+
+@media (min-width: 480px) {
+  .logo {
+    width: auto;
   }
 }
 
@@ -76,10 +90,33 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: transparent;
-  cursor: grab;
-  margin-top: 1.5rem;
-  width: 100%;
+
   user-select: none;
+}
+
+.click-cat {
+  width: 100%;
+  max-width: 380px;
+  padding: 0;
+  cursor: grab !important;
+}
+
+.stroke-container {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  width: 368px;
+  height: 390px;
+}
+
+@media (min-width: 768px) {
+  .stroke-container {
+    height: 449px;
+  }
 }
 
 button:focus {
@@ -91,37 +128,139 @@ button img {
 }
 
 .counter__txt {
-  margin-top: 0.5rem;
-  margin-bottom: -2rem;
   font-size: 1rem;
-  line-height: 2.5rem;
+  margin-top: 1rem;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   font-family: Georgia, "Times New Roman", Times, serif;
-  @media (min-width: 768px) {
+}
+
+.menu-link button {
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  cursor: pointer !important;
+}
+
+@media (min-width: 768px) {
+  .counter__txt {
     font-size: 1.5rem;
+
+    line-height: 2.5rem;
   }
 }
 
 .counter__value {
   font-size: 1.5rem;
-  @media (min-width: 768px) {
+}
+
+@media (min-width: 768px) {
+  .counter__value {
     font-size: 2rem;
   }
 }
 
 .footer__bg {
-  position: absolute;
-  left: 0;
-  bottom: 0;
   height: 149px;
   width: 100%;
-  background-position: bottom;
-  background-size: bottom;
+  background-position: left bottom;
   background-repeat: repeat-x;
   background-size: contain;
+  -webkit-box-shadow: 0px 24px 0px 0px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0px 24px 0px 0px rgba(0, 0, 0, 1);
+  box-shadow: 0px 24px 0px 0px rgba(0, 0, 0, 1);
+  margin-bottom: -1px;
+  transition: all 2s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.footer__bg--2 {
+  height: 149px;
+  width: 100%;
+  background-position: left bottom;
+  background-repeat: repeat-x;
+  background-size: contain;
+  -webkit-box-shadow: 0px 24px 0px 0px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0px 24px 0px 0px rgba(0, 0, 0, 1);
+  box-shadow: 0px 24px 0px 0px rgba(0, 0, 0, 1);
+  margin-bottom: -1px;
+  transition: all 2.5s ease-in-out;
+  transform: translateX(-100%);
+}
+.footer__menu-container {
+  height: calc(100% - 149px);
+  background-color: black;
+  position: relative;
+  z-index: 11;
+}
+.counter {
+  transform: translateY(3px);
+}
+
+.main-font {
+  font-family: "Modak", cursive;
+  font-size: 1.5rem;
+  text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+  color: white;
+}
+
+footer {
+  position: absolute;
+  bottom: 0rem;
+  text-align: center;
+  left: 0;
+  z-index: 10;
+  color: white;
+  width: 100%;
 }
 
 @keyframes shine {
   to {
     background-position: -200% center;
   }
+}
+
+.menu-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(70%);
+  transition: all 1.2s ease-in-out;
+  overflow: hidden;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .menu-wrapper {
+    transform: translateY(80%);
+  }
+}
+
+.menu-wrapper.active {
+  transform: translateY(5%);
+}
+
+.menu-wrapper.active .footer__bg {
+  transform: translateX(100%);
+}
+.menu-wrapper.active .footer__bg--2 {
+  transform: translateX(0%);
+  transition: all 1.5s ease-out;
+}
+
+.white-font {
+  color: white;
+}
+
+.cat-wrapper {
+  transition: all 0.8s ease-in;
+  transform: translateY(50%);
+}
+
+.menu-wrapper.active .cat-wrapper {
+  transform: translateY(0%);
 }
