@@ -3,10 +3,11 @@ import cats from "../../data/cats.json";
 
 export const Footer = (props: any) => {
   let menuClasses = 'menu-wrapper';
-  let scores = JSON.parse(localStorage.getItem("scores"));
+  let tmpC: any = localStorage.getItem("scores");
+  let scores = JSON.parse(tmpC);
   if(!scores)
     scores = [{'id' : 0, 'score' : 0}];
-  const updateCat = (id) => {
+  const updateCat = (id:any) => {
     props.updateCat(id);
   }
 
@@ -15,7 +16,7 @@ export const Footer = (props: any) => {
    let catsMenu = <><div className="row cat-wrapper">
       {cats.map((cat) => {
         let catScore = 0;
-        let score = scores.filter((score) => score.id == cat.id);
+        let score = scores.filter((score:any) => score.id == cat.id);
         if(score.length)
           catScore = score[0].score;
         return(<div key={cat.id} className="col-3">

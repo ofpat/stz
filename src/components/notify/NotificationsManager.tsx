@@ -1,13 +1,14 @@
+// @ts-nocheck
 import React from "react";
 import PropTypes from "prop-types";
 
 import Notification from "./Notification";
 
-export default function NotificationsManager({ setNotify }) {
+export default function NotificationsManager({ setNotify:any }) {
   let [notifications, setNotifications] = React.useState([]);
 
   let createNotification = ({ color, autoClose, children }) => {
-    setNotifications((prevNotifications) => {
+    setNotifications((prevNotifications:any) => {
       return [
         ...prevNotifications,
         {

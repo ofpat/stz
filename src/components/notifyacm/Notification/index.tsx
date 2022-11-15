@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect } from "preact/hooks";
 import PropTypes from "prop-types";
 import { createPortal } from "react-dom";

@@ -1,6 +1,6 @@
 import logo from "../../assets/logo.png";
 
-export const Header = (props) => {
+export const Header = (props:any) => {
   let maxScore = props.maxScore;
   let scoreString = '';
   for(let i = parseInt(maxScore.toString().length); i < 8; i++){

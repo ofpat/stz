@@ -5,11 +5,11 @@ import Notification, { Color } from "./Notification";
 import createContainer from "./createContainer";
 
 const containerElement = createContainer();
-let notify;
+let notify:any;
 
 ReactDOM.render(
   <NotificationsManager
-    setNotify={(notifyFn) => {
+    setNotify={(notifyFn:any) => {
       notify = notifyFn;
     }}
   />,
@@ -18,7 +18,7 @@ ReactDOM.render(
 
 export { Notification, Color };
 
-export function info(children, autoClose) {
+export function info(children:any, autoClose:any) {
   return notify({
     color: Color.info,
     children,
@@ -26,7 +26,7 @@ export function info(children, autoClose) {
   });
 }
 
-export function success(children, autoClose) {
+export function success(children:any, autoClose:any) {
   return notify({
     color: Color.success,
     children,
@@ -34,7 +34,7 @@ export function success(children, autoClose) {
   });
 }
 
-export function warning(children, autoClose) {
+export function warning(children:any, autoClose:any) {
   return notify({
     color: Color.warning,
     children,
@@ -42,7 +42,7 @@ export function warning(children, autoClose) {
   });
 }
 
-export function error(children, autoClose) {
+export function error(children:any, autoClose:any) {
   return notify({
     color: Color.error,
     children,

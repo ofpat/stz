@@ -23,17 +23,18 @@ import audio7 from "./assets/meows/short_7.mp3";
 import "./app.css";
 
 export function App() {
-  let maxScore = 0;
-  let catId: number = 0;
-  let scores = [{ id: 0, score: 0 }];
+  let maxScore: any = 0;
+  let catId: any = 0;
+  let scores: any = [{ id: 0, score: 0 }];
   // let currentScore = scores.filter((score) => score.id === catId);
   let currentCatScore = 0;
 
   if (localStorage.getItem("catId")) {
     catId = localStorage.getItem("catId");
     maxScore = localStorage.getItem("maxScore");
-    scores = JSON.parse(localStorage.getItem("scores"));
-    let score = scores.filter((score) => score.id == catId);
+    let tmpS: any = localStorage.getItem("scores");
+    scores = JSON.parse(tmpS);
+    let score = scores.filter((score: any) => score.id == catId);
     currentCatScore = score[0].score;
   }
   let catImg = cats[catId].image;
@@ -47,7 +48,7 @@ export function App() {
   const [maxScoreNum, setMaxScoreNum] = useState(maxScore);
 
   const clickZacki = () => {
-    let counted: any = parseInt(count) + 1;
+    let counted: any = parseInt(count as unknown as string) + 1;
     sessionStorage.setItem("count", counted);
     const id = "sound" + Math.floor(Math.random() * (16 - 1 + 1) + 1);
     var audioElement: any = document.getElementById(id);
@@ -56,7 +57,7 @@ export function App() {
     setCount(counted);
     let changedEntry = false;
     let tmpScore = {"id" : currentId, score: counted};
-    scores = scores.map((score) => {
+    scores = scores.map((score:any) => {
       if(score.id == currentId){
         score = tmpScore;
         changedEntry = true;
@@ -67,14 +68,16 @@ export function App() {
     scores.push(tmpScore);
     let maxScoreTmp = parseInt(maxScoreNum) + 1;
     setMaxScoreNum(maxScoreTmp);
-    localStorage.setItem("maxScore", maxScoreTmp);
+    localStorage.setItem("maxScore", maxScoreTmp as unknown as string);
     localStorage.setItem("scores", JSON.stringify(scores));
   };
 
   const [notifications, setNotifications] = useState([]);
   const message = "This is a notification!";
-  const createNotification = (color) =>
-    setNotifications([...notifications, { color, id: notifications.length }]);
+  const createNotification = (color:any) => {}
+    /*
+    remove brackets above if you want to use it
+    setNotifications([...notifications, { color, id: notifications.length }]); */
 
   const toggleMenu = () => {
     setToggled(!toggled);
@@ -94,10 +97,11 @@ export function App() {
     /* localStorage.clear(); */
   }, []);
 
-  const updateCat = (id) => {
-    let updateScores = JSON.parse(localStorage.getItem("scores"));
+  const updateCat = (id:any) => {
+    let tmpC:any = localStorage.getItem("scores")
+    let updateScores = JSON.parse(tmpC);
     let tmpScore = {"id" : id, score: 0};
-    let updateScore = scores.filter((score) => score.id == id);
+    let updateScore = scores.filter((score:any) => score.id == id);
     if(!updateScore.length){
       updateScores.push(tmpScore);
       localStorage.setItem("scores", JSON.stringify(updateScores));
