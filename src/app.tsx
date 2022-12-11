@@ -11,7 +11,6 @@ import { Header } from "./components/header";
 import { Footer } from "./components/footer";
 import cats from "./data/cats.json";
 
-import preactLogo from "./assets/zacki.png";
 import audio8 from "./assets/meows/short-meow-orig.mp3";
 import audio1 from "./assets/meows/short_1.mp3";
 import audio2 from "./assets/meows/short_2.mp3";
@@ -39,6 +38,7 @@ export function App() {
   }
   let catImg = cats[catId].image;
   let catName = cats[catId].name;
+  let catColor = cats[catId].color;
   let countStart: any = 0;
   if (sessionStorage.getItem("count"))
     countStart = sessionStorage.getItem("count");
@@ -117,6 +117,7 @@ export function App() {
 
   return (
     <>
+      <div className="changeable-bg" style={{backgroundColor: catColor}}></div>
       <main>
         <Header handleMenu={toggleMenu} maxScore={maxScoreNum}/>
         <p style="" className="counter__txt">
@@ -130,7 +131,7 @@ export function App() {
           </Notification>
         ))}
 
-        <div class="stroke-container px-4 px-md-0">
+        <div class="stroke-container px-5 px-md-0">
           <button onClick={clickZacki} className="click-cat">
             <img
               src={`./images/${catImg}`}

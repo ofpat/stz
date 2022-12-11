@@ -13,13 +13,13 @@ export const Footer = (props: any) => {
 
   if(props.openMenu && scores)
     menuClasses = 'menu-wrapper active';
-   let catsMenu = <><div className="row cat-wrapper">
+   let catsMenu = <><div className="row cat-wrapper flex-nowrap flex-md-wrap">
       {cats.map((cat) => {
         let catScore = 0;
         let score = scores.filter((score:any) => score.id == cat.id);
         if(score.length)
           catScore = score[0].score;
-        return(<div key={cat.id} className="col-3">
+        return(<div key={cat.id} className="col-8 col-md-3">
           <button className="cursor-pointer;" onClick={() => updateCat(cat.id)}>
           <img src={`./images/${cat.image}`} alt="" className="w-100"/>
           <div className="white-font mt-3 display-5 ">

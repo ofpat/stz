@@ -2,11 +2,19 @@
     {
         "id":0,
         "image": "zacki.png",
-        "name": "Zacki"        
+        "name": "Zacki",
+        "color": "#0e221f"     
     },
     {
         "id":1,
         "image": "aya.png",
-        "name": "Aya"        
+        "name": "Aya",
+        "color": "#003366"
+    },
+    {
+        "id":2,
+        "image": "yuna.png",
+        "name": "Yuna",
+        "color": "#7851a9"
     }
 ]
