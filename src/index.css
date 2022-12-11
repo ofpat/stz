@@ -137,6 +137,7 @@ button:focus {
 
 button img {
   width: 100%;
+  pointer-events: none;
 }
 
 .counter__txt {
